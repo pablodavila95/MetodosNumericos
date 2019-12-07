@@ -1,0 +1,24 @@
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.centerInput {
+    margin: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: inherit;
+    width: 50%;
+}
+
+.centerText {
+    text-align: center;
+}
+
+input {
+    size: auto;
+}

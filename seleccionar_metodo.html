@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seleccionar Metodo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/bootstrap.min.js"></script>
+
+    <script src="js/controllers/selector.js"></script>
+</head>
+<body>
+<h1 class="h1 row justify-content-center align-items-center">Métodos Numéricos</h1>
+<div class="container">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div id="equationSetup">
+            <label>
+                Tipo de ecuación
+                <select id="typeOfEquation">
+                    <option name="nonLinealEq" value="1">Ecuación No Lineal</option>
+                    <option name="polinomialEq" value="2">Ecuación Polinomial</option>
+                    <option name="linealEqSystem" value="3">Sistema de Ecuaciones Lineales</option>
+                    <option name="nonLinealEqSystem" value="4">Sistema de Ecuaciones No Lineales</option>
+                    <option name="ordDifEq" value="5">Ecuación Diferencial Ordinaria</option>
+                </select>
+            </label>
+        </div>
+        <div class="btn-group btn-block">
+            <button class="btn btn-primary" onclick="selector()">Continuar</button>
+            <button class="btn btn-secondary" onclick="location.reload()">Reiniciar</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

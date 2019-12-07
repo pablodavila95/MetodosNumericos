@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Ecuaciones Lineales</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/controllers/generateInput.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</head>
+<body>
+<label>
+    Numero de incognitas
+    <select id="variables" onchange="linearSystem(this.value)">
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</label>
+<div class="row d-flex justify-content-center">
+    <div class="form-group d-flex justify-content-center align-items-lg-center">
+        <div id="twoVariables" style="display: none;">
+            <label>
+                X
+                <input type="text" id="x11">
+            </label>
+            <p> + </p>
+            <label>
+                Y
+                <input type="text" id="y11">
+            </label>
+            <p> = </p>
+            <label>
+                <input type="text" id="c11">
+            </label>
+            <br>
+            <label>
+                X
+                <input type="text" id="x12">
+            </label>
+            <p> + </p>
+            <label>
+                Y
+                <input type="text" id="y12">
+            </label>
+            <p> = </p>
+            <label>
+                <input type="text" id="c12">
+            </label>
+
+        </div>
+        <div id="threeVariables" style="display: none;">
+            <label>
+                X
+                <input type="text" id="x21">
+            </label>
+            <p> + </p>
+            <label>
+                Y
+                <input type="text" id="y21">
+            </label>
+            <p> + </p>
+            <label>
+                Z
+                <input type="text" id="z21">
+            </label>
+            <p> = </p>
+            <label>
+                <input type="text" id="c21">
+            </label>
+            <br>
+            <label>
+                X
+                <input type="text" id="x22">
+            </label>
+            <p> + </p>
+            <label>
+                Y
+                <input type="text" id="y22">
+            </label>
+            <p> + </p>
+            <label>
+                Z
+                <input type="text" id="z22">
+            </label>
+            <p> = </p>
+            <label>
+                <input type="text" id="c22">
+            </label>
+        </div>
+    </div>
+</div>
+</body>
+</html>

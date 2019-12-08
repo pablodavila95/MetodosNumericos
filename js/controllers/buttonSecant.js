@@ -1,4 +1,4 @@
-function secant(a, b, e, f) {
+function secant2(a, b, e, f) {
     let n = 0;
     let xm = 0;
     let x0 = 0;
@@ -25,6 +25,18 @@ function secant(a, b, e, f) {
 
     } else {
         console.log("No se encuentra la raiz");
+    }
+}
+
+function secant(a, b, e, f) {
+    let newGuess = a - f(a) * (a-b) / (f(a) - f(b));
+    let err = Math.abs(newGuess - a);
+    if (err < e) {
+        console.log("the root is " + newGuess);
+        return newGuess;
+    }
+    else {
+        secant(newGuess, a, e, f)
     }
 }
 

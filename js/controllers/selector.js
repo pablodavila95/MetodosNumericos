@@ -26,6 +26,9 @@ selector = () => {
             console.log("ordDifEquation");
             window.location.href = "ord_diferential.html";
             break;
-
     }
 };
+
+//TODO cambiar el input de ecuaciones al text box que toma una funcion continua
+//TODO agregar botones para poner las exponenciales y trig
+//TODO mostrar respuestas en los spans

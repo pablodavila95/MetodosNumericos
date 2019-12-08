@@ -77,6 +77,8 @@ function secant(a, b, e, f) {
 }
 
 function secantExecute() {
+    let result = document.getElementById("resultSpan");
+
     let power = parseInt(document.getElementById("power").value);
     let a = parseFloat(document.getElementById("left").value);
     let b = parseFloat(document.getElementById("right").value);
@@ -90,6 +92,8 @@ function secantExecute() {
                 return a1 * Math.pow(x, 1) + z1;
             };
             draw(f1);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + secant(a, b, error, f1);
             return secant(a, b, error, f1);
 
         case 2:
@@ -102,6 +106,8 @@ function secantExecute() {
                 return new Function("x", code);
             };
             draw(f2);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + secant(left, right, error, f2);
             return secant(left, right, error, f2);
         case 3:
 
@@ -114,6 +120,8 @@ function secantExecute() {
                 return (a3 * Math.pow(x, 3)) + (b3 * Math.pow(x, 2)) + (c3 * x) + z3;
             };
             draw(f3);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + secant(left, right, error, f3);
             return secant(left, right, error, f3);
         case 4:
             let f4 = function (x) {
@@ -125,6 +133,8 @@ function secantExecute() {
                 return (a4 * Math.pow(x, 4)) + (b4 * Math.pow(x, 3)) + (c4 * Math.pow(x, 2)) + (d4 * x) + z4;
             };
             draw(f4);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + secant(left, right, error, f4);
             return secant(left, right, error, f4);
         case 5:
 
@@ -139,6 +149,8 @@ function secantExecute() {
                 return (a5 * Math.pow(x, 5)) + (b5 * Math.pow(x, 4)) + (c5 * Math.pow(x, 3)) + (d5 * Math.pow(x, 2)) + (e5 * x) + z5;
             };
             draw(f5);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + secant(left, right, error, f5);
             return secant(left, right, error, f5);
     }
 }

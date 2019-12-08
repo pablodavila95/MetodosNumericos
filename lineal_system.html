@@ -20,13 +20,13 @@
 
 <div class="nav-item d-flex align-items-center justify-content-center">
 
-<label>
-    Numero de incognitas
-    <select id="variables" onchange="linearSystem(this.value)">
-        <option value="2">2</option>
-        <option value="3">3</option>
-    </select>
-</label>
+    <label>
+        Numero de incognitas
+        <select id="variables" onchange="linearSystem(this.value)">
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </label>
 </div>
 <div class="flex-column d-flex justify-content-center">
     <div class="flex-column d-flex justify-content-center align-items-lg-center">
@@ -125,8 +125,10 @@
 
             <button class="btn btn-secondary" onclick="location.reload()">Reiniciar</button>
         </div>
-        <div id="gaussAnswerContainer" class="flex-column d-flex justify-content-center align-items-center btn-block">
-            <span id="gaussAnswer"></span>
+        <div class="d-flex align-items-center justify-content-center">
+    <span id="resultSpan">
+
+    </span>
         </div>
     </div>
 </div>

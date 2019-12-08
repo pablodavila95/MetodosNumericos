@@ -1,4 +1,5 @@
 function buttonGauss() {
+
     let size = parseInt(document.getElementById("variables").value);
     let i = parseInt(document.getElementById("iterations").value);
     if (size === 2) {
@@ -10,6 +11,8 @@ function buttonGauss() {
 }
 
 function threeVariables(iterations) {
+    let result = document.getElementById("resultSpan");
+
     function seidel(a, x, b) {
         let n = 3;
         let d;
@@ -50,10 +53,14 @@ function threeVariables(iterations) {
         solutionVector = seidel(equationsVector, solutionVector, equalsVector);
         console.log(solutionVector);
     }
+    result.innerHTML = "Result is : " + solutionVector.toString();
+
     return solutionVector;
 }
 
 function twoVariables(iterations) {
+    let result = document.getElementById("resultSpan");
+
     function seidel(a, x, b) {
         let n = 2;
         let d;
@@ -86,7 +93,7 @@ function twoVariables(iterations) {
         solutionVector = seidel(equationsVector, solutionVector, equalsVector);
         console.log(solutionVector);
     }
+    result.innerHTML = "Result is : " + solutionVector.toString();
     return solutionVector;
 }
 
-//TODO agregar potencialmente para 4 incognitas

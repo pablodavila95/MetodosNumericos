@@ -1,7 +1,6 @@
 function draw(f) {
     const canvas = document.getElementById("canvas");
     if (null == canvas || !canvas.getContext) return;
-    //canvas.innerHTML = "";
     const axes = {}, ctx = canvas.getContext("2d");
     axes.x0 = .5 + .5 * canvas.width;  // x0 pixels from left to x=0
     axes.y0 = .5 + .5 * canvas.height; // y0 pixels from top to y=0
@@ -82,6 +81,8 @@ function newtonrap(f, fp, x0, e) {
 }
 
 function newtonExecute() {
+    let result = document.getElementById("resultSpan");
+
     let power = parseInt(document.getElementById("power").value);
     let a = parseFloat(document.getElementById("left").value);
     let error = parseFloat(document.getElementById("error").value);
@@ -94,6 +95,8 @@ function newtonExecute() {
                 return a1 * Math.pow(x, 1) + z1;
             };
             draw(f1);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + newtonrap(f1, getDerivative(), a, error);
             return newtonrap(f1, getDerivative(), a, error);
 
         case 2:
@@ -106,6 +109,8 @@ function newtonExecute() {
                 return new Function("x", code);
             };
             draw(f2);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + newtonrap(f2, getDerivative(), a, error);
             return newtonrap(f2, getDerivative(), a, error);
         case 3:
 
@@ -118,6 +123,8 @@ function newtonExecute() {
                 return (a3 * Math.pow(x, 3)) + (b3 * Math.pow(x, 2)) + (c3 * x) + z3;
             };
             draw(f3);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + newtonrap(f3, getDerivative(), a, error);
             return newtonrap(f3, getDerivative(), a, error);
         case 4:
             let f4 = function (x) {
@@ -129,6 +136,8 @@ function newtonExecute() {
                 return (a4 * Math.pow(x, 4)) + (b4 * Math.pow(x, 3)) + (c4 * Math.pow(x, 2)) + (d4 * x) + z4;
             };
             draw(f4);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + newtonrap(f4, getDerivative(), a, error);
             return newtonrap(f4, getDerivative(), a, error);
         case 5:
 
@@ -143,6 +152,8 @@ function newtonExecute() {
                 return (a5 * Math.pow(x, 5)) + (b5 * Math.pow(x, 4)) + (c5 * Math.pow(x, 3)) + (d5 * Math.pow(x, 2)) + (e5 * x) + z5;
             };
             draw(f5);
+            result.innerHTML = "";
+            result.innerHTML = "Result is : " + newtonrap(f5, getDerivative(), a, error);
             return newtonrap(f5, getDerivative(), a, error);
     }
 }

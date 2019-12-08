@@ -43,43 +43,46 @@ function funGraph(ctx, axes, func, color, thick) {
 }
 
 
-/*
-##################################################
- */
-function secant(a, b, e, f) {
-    let n = 0;
-    let xm = 0;
-    let x0 = 0;
-    let c = 0;
-
-    if (f(a) * f(b) < 0) {
-        while (true) {
-            x0 = ((a * f(b) - b * f(a)) / (f(b) - f(a)));
-            c = f(a) * f(x0);
-            a = b;
-            b = x0;
-            n += 1;
-            if (c === 0) {
-                break;
-            }
-            xm = ((a * f(b) - b * f(a)) / (f(b) - f(a)));
-            if (Math.abs(xm - x0) < e) {
-                break
-            }
-        }
-        console.log("Root of the equation = " + x0);
-        console.log("Number of iterations = " + n);
-        return x0;
-
-    } else {
-        console.log("No se encuentra la raiz");
+function showNewton() {
+    let bool = document.getElementById("newtonShow").value;
+    if (bool) {
+        document.getElementById("derivativeNewton").style.display = 'block';
+    } else if(!bool){
+        document.getElementById("derivativeNewton").style.display = 'none';
     }
 }
 
-function secantExecute() {
+/*
+##################################################
+ */
+
+function getDerivative() {
+    let func = function (x) {
+        let a = parseFloat(document.getElementById("d1").value);
+        let b = parseFloat(document.getElementById("d2").value);
+        let c = parseFloat(document.getElementById("d3").value);
+        let d = parseFloat(document.getElementById("d4").value);
+        let e = parseFloat(document.getElementById("d5").value);
+        let f = parseFloat(document.getElementById("d6").value);
+
+        return Math.pow(x, 5) * a + Math.pow(x, 4) * b + Math.pow(x, 3) * c + Math.pow(x, 2) * d + Math.pow(x, 1) * e + f;
+    };
+    return func;
+}
+
+function newtonrap(f, fp, x0, e) {
+    let h = f(x0) / fp(x0);
+    while (Math.abs(h) >= e) {
+        h = f(x0) / fp(x0);
+        x0 = x0 - h;
+    }
+    console.log("the number is " + x0);
+    return x0;
+}
+
+function newtonExecute() {
     let power = parseInt(document.getElementById("power").value);
     let a = parseFloat(document.getElementById("left").value);
-    let b = parseFloat(document.getElementById("right").value);
     let error = parseFloat(document.getElementById("error").value);
 
     switch (power) {
@@ -90,7 +93,7 @@ function secantExecute() {
                 return a1 * Math.pow(x, 1) + z1;
             };
             draw(f1);
-            return secant(a, b, error, f1);
+            return newtonrap(f1, getDerivative(), a, error);
 
         case 2:
 
@@ -102,7 +105,7 @@ function secantExecute() {
                 return new Function("x", code);
             };
             draw(f2);
-            return secant(left, right, error, f2);
+            return newtonrap(f2, getDerivative(), a, error);
         case 3:
 
             let f3 = function (x) {
@@ -114,7 +117,7 @@ function secantExecute() {
                 return (a3 * Math.pow(x, 3)) + (b3 * Math.pow(x, 2)) + (c3 * x) + z3;
             };
             draw(f3);
-            return secant(left, right, error, f3);
+            return newtonrap(f3, getDerivative(), a, error);
         case 4:
             let f4 = function (x) {
                 let a4 = parseFloat(document.getElementById("input4").value);
@@ -125,7 +128,7 @@ function secantExecute() {
                 return (a4 * Math.pow(x, 4)) + (b4 * Math.pow(x, 3)) + (c4 * Math.pow(x, 2)) + (d4 * x) + z4;
             };
             draw(f4);
-            return secant(left, right, error, f4);
+            return newtonrap(f4, getDerivative(), a, error);
         case 5:
 
             let f5 = function (x) {
@@ -139,6 +142,6 @@ function secantExecute() {
                 return (a5 * Math.pow(x, 5)) + (b5 * Math.pow(x, 4)) + (c5 * Math.pow(x, 3)) + (d5 * Math.pow(x, 2)) + (e5 * x) + z5;
             };
             draw(f5);
-            return secant(left, right, error, f5);
+            return newtonrap(f5, getDerivative(), a, error);
     }
 }

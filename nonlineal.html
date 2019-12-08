@@ -10,6 +10,8 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="js/controllers/buttonSecant.js"></script>
     <script src="js/controllers/buttonsBisection.js"></script>
+    <script src="js/controllers/buttonNewton.js"></script>
+
 </head>
 <body>
 <label>
@@ -22,26 +24,42 @@
         <option value="5">5</option>
     </select>
 </label>
+<label for="newtonShow">
+    Newton-Raphson?
+    <input type="checkbox" id="newtonShow" onchange="showNewton();">
+</label>
 <div id="formContainer" class="row d-flex justify-content-center">
     <div id="dynamicEquationContainer"
          class="form-group d-flex justify-content-center align-items-lg-center">
     </div>
     <div class="btn-group">
         <button class="btn btn-primary" onclick="bisectionExecute();">Biseccion</button>
-        <button class="btn btn-primary">Newton-Raphson</button>
+        <button class="btn btn-primary" onclick="newtonExecute();">Newton-Raphson</button>
         <button class="btn btn-primary" onclick="secantExecute();">Secante</button>
         <button class="btn btn-primary">Bairstow</button>
 
         <button class="btn btn-secondary" onclick="location.reload()">Reiniciar</button>
     </div>
+    <div id="derivativeNewton" style="display: none">
+        <p>Derivative for Newton-Raphson</p>
+        <label for="d1">X^5</label><input type="text" id="d1" placeholder="0">
+        <label for="d2">X^4</label><input type="text" id="d2" placeholder="0">
+        <label for="d3">X^3</label><input type="text" id="d3" placeholder="0">
+        <label for="d4">X^2</label><input type="text" id="d4" placeholder="0">
+        <label for="d5">X^1</label><input type="text" id="d5" placeholder="0">
+        <label for="d6">C</label><input type="text" id="d6" placeholder="0">
+    </div>
 </div>
 <div id="parameters" class="center">
-    <label for="left">Left</label><input type="number" id="left">
-    <label for="right">Right</label><input type="number" id="right">
+    <label for="left">Left(Bisection) / A(Secant) / X(Newton-Raphson)</label><input type="number" id="left">
+    <label for="right">Right(Bisection) / B(Secant)</label><input type="number" id="right">
     <label for="error">Error</label><input type="number" id="error">
-    <label for="iteration">Iteration</label><input type="number" id="iteration">
 
 
+</div>
+
+<div>
+    <canvas id="canvas" width="350" height="500"></canvas>
 </div>
 </body>
 </html>

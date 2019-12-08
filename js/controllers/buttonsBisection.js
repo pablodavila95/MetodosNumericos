@@ -1,3 +1,47 @@
+function draw(f) {
+    const canvas = document.getElementById("canvas");
+    if (null == canvas || !canvas.getContext) return;
+    //canvas.innerHTML = "";
+    const axes = {}, ctx = canvas.getContext("2d");
+    axes.x0 = .5 + .5 * canvas.width;  // x0 pixels from left to x=0
+    axes.y0 = .5 + .5 * canvas.height; // y0 pixels from top to y=0
+    axes.scale = 2;                 // 40 pixels from x=0 to x=1
+    axes.doNegativeX = true;
+
+    showAxes(ctx, axes);
+    funGraph(ctx, axes, f, "rgb(11,153,11)", 1);
+}
+
+function showAxes(ctx, axes) {
+    const x0 = axes.x0, w = ctx.canvas.width;
+    const y0 = axes.y0, h = ctx.canvas.height;
+    const xmin = axes.doNegativeX ? 0 : x0;
+    ctx.beginPath();
+    ctx.strokeStyle = "rgb(128,128,128)";
+    ctx.moveTo(xmin, y0);
+    ctx.lineTo(w, y0);  // X axis
+    ctx.moveTo(x0, 0);
+    ctx.lineTo(x0, h);  // Y axis
+    ctx.stroke();
+}
+
+function funGraph(ctx, axes, func, color, thick) {
+    let xx, yy, dx = 4, x0 = axes.x0, y0 = axes.y0, scale = axes.scale;
+    const iMax = Math.round((ctx.canvas.width - x0) / dx);
+    const iMin = axes.doNegativeX ? Math.round(-x0 / dx) : 0;
+    ctx.beginPath();
+    ctx.lineWidth = thick;
+    ctx.strokeStyle = color;
+
+    for (let i = iMin; i <= iMax; i++) {
+        xx = dx * i;
+        yy = scale * func(xx / scale);
+        if (i === iMin) ctx.moveTo(x0 + xx, y0 - yy);
+        else ctx.lineTo(x0 + xx, y0 - yy);
+    }
+    ctx.stroke();
+}
+
 function bisect(a, b, e, f) {
     if (f(a) * f(b) >= 0) {
         return 0;
@@ -25,7 +69,6 @@ function bisectionExecute() {
     let a = parseFloat(document.getElementById("left").value);
     let b = parseFloat(document.getElementById("right").value);
     let error = parseFloat(document.getElementById("error").value);
-    let iteration = parseInt(document.getElementById("iteration").value);
 
     switch (power) {
         case 1:
@@ -34,6 +77,7 @@ function bisectionExecute() {
                 let z1 = parseFloat(document.getElementById("constant").value);
                 return a1 * Math.pow(x, 1) + z1;
             };
+            draw(f1);
             return bisect(a, b, error, f1);
         case 2:
             let f2 = function (x) {
@@ -42,6 +86,8 @@ function bisectionExecute() {
                 let z2 = parseFloat(document.getElementById("constant").value);
                 return a2 * Math.pow(x, 2) + b2 * Math.pow(x, 1) + z2;
             };
+            draw(f2);
+
             return bisect(a, b, error, f2);
         case 3:
             let f3 = function (x) {
@@ -52,6 +98,8 @@ function bisectionExecute() {
                 let z3 = parseFloat(document.getElementById("constant").value);
                 return a3 * Math.pow(x, 3) + b3 * Math.pow(x, 2) + c3 * Math.pow(x, 1) + z3;
             };
+            draw(f3);
+
             return bisect(a, b, error, f3);
         case 4:
             let f4 = function (x) {
@@ -62,6 +110,8 @@ function bisectionExecute() {
                 let z4 = parseFloat(document.getElementById("constant").value);
                 return a4 * Math.pow(x, 4) + b4 * Math.pow(x, 3) + c4 * Math.pow(x, 2) + d4 * Math.pow(x, 1) + z4;
             };
+            draw(f4);
+
             return bisect(a, b, error, f4);
         case 5:
 
@@ -75,6 +125,8 @@ function bisectionExecute() {
 
                 return a5 * Math.pow(x, 5) + b5 * Math.pow(x, 4) + c5 * Math.pow(x, 3) + d5 * Math.pow(x, 2) + e5 * Math.pow(x, 1) + z5;
             };
+            draw(f5);
+
             return bisect(a, b, error, f5);
     }
 }

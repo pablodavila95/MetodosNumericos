@@ -1,6 +1,4 @@
-
-
-function secant(a,b,e,f) {
+function secant(a, b, e, f) {
     let n = 0;
     let xm = 0;
     let x0 = 0;
@@ -25,8 +23,7 @@ function secant(a,b,e,f) {
         console.log("Number of iterations = " + n);
         return x0;
 
-    }
-    else {
+    } else {
         console.log("No se encuentra la raiz");
     }
 }
@@ -36,7 +33,6 @@ function secantExecute() {
     let a = parseFloat(document.getElementById("left").value);
     let b = parseFloat(document.getElementById("right").value);
     let error = parseFloat(document.getElementById("error").value);
-    let iteration = parseInt(document.getElementById("iteration").value);
 
     switch (power) {
         case 1:
@@ -51,9 +47,8 @@ function secantExecute() {
             let f2 = function (x) {
                 let a2 = parseFloat(document.getElementById("input2").value);
                 let b2 = parseFloat(document.getElementById("input1").value);
-
                 let z2 = parseFloat(document.getElementById("constant").value);
-                return a2 * Math.pow(x, 2) + b2 * Math.pow(x, 1) + z2;
+                return (a2 * Math.pow(x, 2)) + (b2 * x) + z2;
             };
             return secant(left, right, error, f2);
         case 3:
@@ -64,7 +59,7 @@ function secantExecute() {
                 let c3 = parseFloat(document.getElementById("input1").value);
 
                 let z3 = parseFloat(document.getElementById("constant").value);
-                return a3 * Math.pow(x, 3) + b3 * Math.pow(x, 2) + c3 * Math.pow(x, 1) + z3;
+                return (a3 * Math.pow(x, 3)) + (b3 * Math.pow(x, 2)) + (c3 * x) + z3;
             };
             return secant(left, right, error, f3);
         case 4:
@@ -74,7 +69,7 @@ function secantExecute() {
                 let c4 = parseFloat(document.getElementById("input2").value);
                 let d4 = parseFloat(document.getElementById("input1").value);
                 let z4 = parseFloat(document.getElementById("constant").value);
-                return a4 * Math.pow(x, 4) + b4 * Math.pow(x, 3) + c4 * Math.pow(x, 2) + d4 * Math.pow(x, 1) + z4;
+                return (a4 * Math.pow(x, 4)) + (b4 * Math.pow(x, 3)) + (c4 * Math.pow(x, 2)) + (d4 * x) + z4;
             };
             return secant(left, right, error, f4);
         case 5:
@@ -87,7 +82,7 @@ function secantExecute() {
                 let e5 = parseFloat(document.getElementById("input1").value);
                 let z5 = parseFloat(document.getElementById("constant").value);
 
-                return a5 * Math.pow(x, 5) + b5 * Math.pow(x, 4) + c5 * Math.pow(x, 3) + d5 * Math.pow(x, 2) + e5 * Math.pow(x, 1) + z5;
+                return (a5 * Math.pow(x, 5)) + (b5 * Math.pow(x, 4)) + (c5 * Math.pow(x, 3)) + (d5 * Math.pow(x, 2)) + (e5 * x) + z5;
             };
             return secant(left, right, error, f5);
     }

@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="./js/controllers/generateInput.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/controllers/buttonGaussSeidel.js"></script>
+    <script src="./js/controllers/buttonJacobi.js"></script>
+
 </head>
 <body>
 <label>
@@ -87,6 +90,32 @@
             <label>
                 <input type="text" id="c22">
             </label>
+            <br>
+            <label>
+                X
+                <input type="text" id="x23">
+            </label>
+            <p> + </p>
+            <label>
+                Y
+                <input type="text" id="y23">
+            </label>
+            <p> + </p>
+            <label>
+                Z
+                <input type="text" id="z23">
+            </label>
+            <p> = </p>
+            <label>
+                <input type="text" id="c23">
+            </label>
+
+        </div>
+        <label for="iterations">Iterations</label><input type="number" id="iterations">
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="buttonGauss();">GaussSeidel</button>
+
+            <button class="btn btn-secondary" onclick="location.reload()">Reiniciar</button>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@ selector = () => {
 
         case 2:
             console.log("Polynomial");
-            window.location.href = "polynomial.html";
+            window.location.href = "nonlineal.html";
             break;
 
         case 3:

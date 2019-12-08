@@ -46,8 +46,9 @@ function funGraph(ctx, axes, func, color, thick) {
 function showNewton() {
     let bool = document.getElementById("newtonShow").value;
     if (bool) {
-        document.getElementById("derivativeNewton").style.display = 'block';
-    } else if(!bool){
+        document.getElementById("derivativeNewton").style.display = 'inline';
+    }
+    if (bool === false) {
         document.getElementById("derivativeNewton").style.display = 'none';
     }
 }

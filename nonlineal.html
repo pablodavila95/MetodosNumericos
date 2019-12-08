@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ecuacion No Lineal</title>
+    <title>Ecuacion No Lineal y Polinomios</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -10,10 +10,16 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="js/controllers/buttonSecant.js"></script>
     <script src="js/controllers/buttonsBisection.js"></script>
-    <script src="js/controllers/buttonNewton.js"></script>
+    <script src="js/controllers/buttonNewtonRaphson.js"></script>
 
 </head>
 <body>
+<div class="navbar-brand d-flex align-items-center justify-content-center">
+    <h1> Ecuacion No Lineal y Polinomios</h1>
+    <br>
+</div>
+
+<div class="nav-item d-flex align-items-center justify-content-center">
 <label>
     Grado de la ecuación
     <select id="power" onchange="typeOneAndTwo(this.value)">
@@ -28,11 +34,12 @@
     Newton-Raphson?
     <input type="checkbox" id="newtonShow" onchange="showNewton();">
 </label>
-<div id="formContainer" class="row d-flex justify-content-center">
+</div>
+<div id="formContainer" class="flex-column d-flex justify-content-center align-items-center">
     <div id="dynamicEquationContainer"
          class="form-group d-flex justify-content-center align-items-lg-center">
     </div>
-    <div class="btn-group">
+    <div class="flex-row d-flex justify-content-center align-items-center btn-block">
         <button class="btn btn-primary" onclick="bisectionExecute();">Biseccion</button>
         <button class="btn btn-primary" onclick="newtonExecute();">Newton-Raphson</button>
         <button class="btn btn-primary" onclick="secantExecute();">Secante</button>
@@ -42,15 +49,15 @@
     </div>
     <div id="derivativeNewton" style="display: none">
         <p>Derivative for Newton-Raphson</p>
-        <label for="d1">X^5</label><input type="text" id="d1" placeholder="0">
-        <label for="d2">X^4</label><input type="text" id="d2" placeholder="0">
-        <label for="d3">X^3</label><input type="text" id="d3" placeholder="0">
-        <label for="d4">X^2</label><input type="text" id="d4" placeholder="0">
-        <label for="d5">X^1</label><input type="text" id="d5" placeholder="0">
-        <label for="d6">C</label><input type="text" id="d6" placeholder="0">
+        <input type="text" id="d1" placeholder="0"><label for="d1">X^5 + </label>
+        <input type="text" id="d2" placeholder="0"><label for="d2">X^4 + </label>
+        <input type="text" id="d3" placeholder="0"><label for="d3">X^3 + </label>
+        <input type="text" id="d4" placeholder="0"><label for="d4">X^2 + </label>
+        <input type="text" id="d5" placeholder="0"><label for="d5">X^1 + </label>
+        <input type="text" id="d6" placeholder="0"><label for="d6"></label>
     </div>
 </div>
-<div id="parameters" class="center">
+<div id="parameters" class="flex-column d-flex justify-content-center align-items-center btn-block">
     <label for="left">Left(Bisection) / A(Secant) / X(Newton-Raphson)</label><input type="number" id="left">
     <label for="right">Right(Bisection) / B(Secant)</label><input type="number" id="right">
     <label for="error">Error</label><input type="number" id="error">

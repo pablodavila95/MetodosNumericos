@@ -3,8 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <title>Ecuacion Diferencial Ordinaria</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="js/controllers/buttonEuler.js"></script>
+    <script src="js/controllers/buttonRK2.js"></script>
+    <script src="js/controllers/buttonRK4.js"></script>
 </head>
 <body>
+<div class="navbar-brand d-flex align-items-center justify-content-center">
+    <h1>Sistema de Ecuaciones Diferenciales</h1>
+    <br>
+</div>
+<div id="eulerContainer" class="flex-column d-flex justify-content-center">
+    <div id="eulerEq1" class=" d-flex justify-content-center align-items-lg-center">
+
+        <input type="number" id="x1"><label for="x1"> X1 + </label>
+        <input type="number" id="x2"><label for="x2"> X2 =</label>
+        <input type="number" id="cx"><label for="cx"></label>
+    </div>
+
+
+    <div id="eulerEq2" class=" d-flex justify-content-center align-items-lg-center">
+
+        <input type="number" id="y1"><label for="y1"> Y1 + </label>
+        <input type="number" id="y2"><label for="y2"> Y2 =</label>
+        <input type="number" id="cy"><label for="cy"></label>
+    </div>
+
+
+    <div class="flex-column d-flex justify-content-center align-items-center btn-block">
+        <button class="btn-primary flex-xl-shrink-0" onclick="eulerExecute();">Euler</button>
+        <button class="btn btn-secondary flex-sm-shrink-0" onclick="location.reload()">Reiniciar</button>
+    </div>
+    <div id="eulerAnswerContainer" class="flex-column d-flex justify-content-center align-items-center btn-block">
+        <span id="eulerAnswer"></span>
+    </div>
+</div>
+
+
+<div id="rk2Container" class="flex-column d-flex justify-content-center">
+    <div id="rk2Eq1" class=" d-flex justify-content-center align-items-lg-center">
+
+        <input type="number" id="rkx1"><label for="rkx1"> X1 + </label>
+        <input type="number" id="rkx2"><label for="rkx2"> X2 =</label>
+        <input type="number" id="rkcx"><label for="rkcx"></label>
+    </div>
+
+
+    <div id="rk2Eq2" class=" d-flex justify-content-center align-items-lg-center">
+
+        <input type="number" id="rky1"><label for="rky1"> Y1 + </label>
+        <input type="number" id="rky2"><label for="rky2"> Y2 =</label>
+        <input type="number" id="rkcy"><label for="rkcy"></label>
+    </div>
+
+
+    <div class="flex-column d-flex justify-content-center align-items-center btn-block">
+        <button class="btn-primary flex-xl-shrink-0" onclick="rk2Execute();">RK2</button>
+        <button class="btn btn-secondary flex-sm-shrink-0" onclick="location.reload()">Reiniciar</button>
+    </div>
+    <div id="rk2AnswerContainer" class="flex-column d-flex justify-content-center align-items-center btn-block">
+        <span id="rk2Answer"></span>
+    </div>
+</div>
+
+<div id="rk4Container" class="flex-column d-flex justify-content-center">
+    <div id="rk4Eq1" class=" d-flex justify-content-center align-items-lg-center">
+
+        <input type="number" id="rk4x1"><label for="rk4x1"> X1 + </label>
+        <input type="number" id="rk4x2"><label for="rk4x2"> X2 =</label>
+        <input type="number" id="rk4cx"><label for="rk4cx"></label>
+    </div>
+
+
+    <div id="rk4Eq2" class=" d-flex justify-content-center align-items-lg-center">
+
+        <input type="number" id="rk4y1"><label for="rk4y1"> Y1 + </label>
+        <input type="number" id="rk4y2"><label for="rk4y2"> Y2 =</label>
+        <input type="number" id="rk4cy"><label for="rk4cy"></label>
+    </div>
+
+
+    <div class="flex-column d-flex justify-content-center align-items-center btn-block">
+        <button class="btn-primary flex-xl-shrink-0" onclick="rk4Execute();">rk4</button>
+        <button class="btn btn-secondary flex-sm-shrink-0" onclick="location.reload()">Reiniciar</button>
+    </div>
+    <div id="rk4AnswerContainer" class="flex-column d-flex justify-content-center align-items-center btn-block">
+        <span id="rk4Answer"></span>
+    </div>
+</div>
+
 
 </body>
 </html>

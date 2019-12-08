@@ -4,6 +4,11 @@
     padding: 10px;
 }
 
+html *
+{
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
 .centerInput {
     margin: auto;
     display: -webkit-box;

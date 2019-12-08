@@ -44,61 +44,61 @@
     </div>
 
 
+    <div id="rk2Container" class="flex-column d-flex justify-content-center">
+        <div class=" d-flex justify-content-center align-items-lg-center">
+            <label for="yrk2">y(0) = </label><input type="number" id="yrk2">
+            <label for="xrk2">x(0) = </label><input type="number" id="xrk2" onchange="giveEndRk2();" placeholder="0">
+            <label for="hrk2">h = </label><input type="number" id="hrk2" onchange="giveEndRk2();" placeholder="0">
+            <label for="xfrk2">Iterations = </label><input type="number" id="xfrk2" onchange="giveEndRk2();"
+                                                           placeholder="0">
 
-<div id="rk2Container" class="flex-column d-flex justify-content-center">
-    <div id="rk2Eq1" class=" d-flex justify-content-center align-items-lg-center">
+            <span id="xfrk2c">Termina en x(0)</span>
 
-        <input type="number" id="rkx1"><label for="rkx1"> X1 + </label>
-        <input type="number" id="rkx2"><label for="rkx2"> X2 =</label>
-        <input type="number" id="rkcx"><label for="rkcx"></label>
+        </div>
+
+        <div class=" d-flex justify-content-center align-items-lg-center">
+
+            <label>dy/dx = </label><input type="text" id="dydxrk2">
+
+        </div>
+
+        <div class="flex-column d-flex justify-content-center align-items-center btn-block">
+            <button class="btn-primary flex-xl-shrink-0" onclick="rk2Execute();">RK2</button>
+            <button class="btn btn-secondary flex-sm-shrink-0" onclick="location.reload()">Reiniciar</button>
+        </div>
+        <div id="rk2AnswerContainer" class="flex-column d-flex justify-content-center align-items-center btn-block">
+            <span id="rk2Answer"></span>
+        </div>
     </div>
 
+    <div id="rk4Container" class="flex-column d-flex justify-content-center">
+        <div class=" d-flex justify-content-center align-items-lg-center">
+            <label for="yRK4">y(0) = </label><input type="number" id="yRK4">
+            <label for="xRK4">x(0) = </label><input type="number" id="xRK4" onchange="giveEnd();" placeholder="0">
+            <label for="hRK4">h = </label><input type="number" id="hRK4" onchange="giveEnd();" placeholder="0">
+            <label for="xfRK4">Iterations = </label><input type="number" id="xfRK4" onchange="giveEnd();"
+                                                           placeholder="0">
 
-    <div id="rk2Eq2" class=" d-flex justify-content-center align-items-lg-center">
+            <span id="xfRK">Termina en x(0)</span>
 
-        <input type="number" id="rky1"><label for="rky1"> Y1 + </label>
-        <input type="number" id="rky2"><label for="rky2"> Y2 =</label>
-        <input type="number" id="rkcy"><label for="rkcy"></label>
+        </div>
+
+        <div class=" d-flex justify-content-center align-items-lg-center">
+
+            <label>dy/dx = </label><input type="text" id="dydxRK4">
+
+
+        </div>
+
+
+        <div class="flex-column d-flex justify-content-center align-items-center btn-block">
+            <button class="btn-primary flex-xl-shrink-0" onclick="rk4Execute();">RK4</button>
+            <button class="btn btn-secondary flex-sm-shrink-0" onclick="location.reload()">Reiniciar</button>
+        </div>
+        <div id="rk4AnswerContainer" class="flex-column d-flex justify-content-center align-items-center btn-block">
+            <span id="rk4Answer"></span>
+        </div>
     </div>
-
-
-    <div class="flex-column d-flex justify-content-center align-items-center btn-block">
-        <button class="btn-primary flex-xl-shrink-0" onclick="rk2Execute();">RK2</button>
-        <button class="btn btn-secondary flex-sm-shrink-0" onclick="location.reload()">Reiniciar</button>
-    </div>
-    <div id="rk2AnswerContainer" class="flex-column d-flex justify-content-center align-items-center btn-block">
-        <span id="rk2Answer"></span>
-    </div>
-</div>
-
-<div id="rk4Container" class="flex-column d-flex justify-content-center">
-    <div class=" d-flex justify-content-center align-items-lg-center">
-        <label for="yRK4">y(0) = </label><input type="number" id="yRK4">
-        <label for="xRK4">x(0) = </label><input type="number" id="xRK4" onchange="giveEnd();" placeholder="0">
-        <label for="hRK4">h = </label><input type="number" id="hRK4" onchange="giveEnd();" placeholder="0">
-        <label for="xfRK4">Iterations = </label><input type="number" id="xfRK4" onchange="giveEnd();" placeholder="0">
-
-        <span id="xfRK">Termina en x(0)</span>
-
-    </div>
-
-    <div class=" d-flex justify-content-center align-items-lg-center">
-
-        <label>dy/dx = </label><input type="text" id="dydxRK4">
-        <label>y/x = </label><input type="text" id="xyRK4">
-
-
-    </div>
-
-
-    <div class="flex-column d-flex justify-content-center align-items-center btn-block">
-        <button class="btn-primary flex-xl-shrink-0" onclick="rk4Execute();">RK4</button>
-        <button class="btn btn-secondary flex-sm-shrink-0" onclick="location.reload()">Reiniciar</button>
-    </div>
-    <div id="rk4AnswerContainer" class="flex-column d-flex justify-content-center align-items-center btn-block">
-        <span id="rk4Answer"></span>
-    </div>
-</div>
 
 
 </body>

@@ -5,15 +5,13 @@ function giveEnd() {
 
 
     let container = document.getElementById("xfRK");
-    let answer = (h*xf)+x0;
+    let answer = (h * xf) + x0;
 
     if (isNaN(answer)) {
         answer = "0";
     }
 
     container.innerHTML = " Termina en x(" + answer.toString() + ")";
-
-
 }
 
 function rk4Execute() {
@@ -24,22 +22,18 @@ function rk4Execute() {
 
 
     let dydxUnparsed = document.getElementById("dydxRK4").value;
-    let yxUnparsed = document.getElementById("xyRK4").value;
-    if (dydxUnparsed.includes("x") && dydxUnparsed.includes("y") && yxUnparsed.includes("x") && yxUnparsed.includes("y")) {
+    if (dydxUnparsed.includes("x") && dydxUnparsed.includes("y")) {
         dydxUnparsed = dydxUnparsed.replace(/\s+/g, '');
-        yxUnparsed = yxUnparsed.replace(/\s+/g, '');
         let code = `return ${dydxUnparsed}`;
-        let code2 = `return ${yxUnparsed}`;
         let fpxy = new Function('x', 'y', code.toString());
-        let fxy = new Function('x', 'y', code2.toString());
         console.log("has both");
 
-        return rk4Two(h, xf, y0, x0, fxy, fpxy);
+        return rk4Two(h, xf, y0, x0, fpxy);
     }
 }
 
 
-function rk4Two(h, xf, y0, x0, fxy, fpxy) {
+function rk4Two(h, xf, y0, x0, fpxy) {
     function rk4(y, x, dx, f) {
         let k1 = dx * f(x, y),
             k2 = dx * f(x + dx / 2.0, +y + k1 / 2.0),
@@ -56,5 +50,4 @@ function rk4Two(h, xf, y0, x0, fxy, fpxy) {
         x0 = ((x0 * 10) + (h * 10)) / 10;
         xf -= 1;
     }
-
 }

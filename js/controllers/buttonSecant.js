@@ -28,17 +28,6 @@ function secant(a, b, e, f) {
     }
 }
 
-function secant2(a, b, e, f) {
-    let newGuess = a - f(a) * (a - b) / (f(a) - f(b));
-    let err = Math.abs(newGuess - a);
-    if (err < e) {
-        console.log("the root is " + newGuess);
-        return newGuess;
-    } else {
-        secant(newGuess, a, e, f)
-    }
-}
-
 function secantExecute() {
     let power = parseInt(document.getElementById("power").value);
     let a = parseFloat(document.getElementById("left").value);

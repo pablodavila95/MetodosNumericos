@@ -8,17 +8,24 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="./js/controllers/generateInput.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="js/controllers/buttonsBisection.js"></script>
     <script src="js/controllers/buttonSecant.js"></script>
+    <script src="js/controllers/buttonsBisection.js"></script>
 </head>
 <body>
-
+<label>
+    Grado de la ecuación
+    <select id="power" onchange="typeOneAndTwo(this.value)">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+</label>
 <div id="formContainer" class="row d-flex justify-content-center">
-    <div id="dynamicEquationContainer" class="form-group d-flex justify-content-center align-items-lg-center">
-        <label for="equation">Introduce la ecuacion. JS necesita que las funciones matematicas utilicen la clase Math. Por ejemplo, x^2 -> Math.pow(x,2) </label><input type="text" id="equation">
+    <div id="dynamicEquationContainer"
+         class="form-group d-flex justify-content-center align-items-lg-center">
     </div>
-    <br>
-
     <div class="btn-group">
         <button class="btn btn-primary" onclick="bisectionExecute();">Biseccion</button>
         <button class="btn btn-primary">Newton-Raphson</button>

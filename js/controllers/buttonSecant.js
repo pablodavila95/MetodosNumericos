@@ -1,4 +1,4 @@
-function secant2(a, b, e, f) {
+function secant(a, b, e, f) {
     let n = 0;
     let xm = 0;
     let x0 = 0;
@@ -28,7 +28,7 @@ function secant2(a, b, e, f) {
     }
 }
 
-function secant(a, b, e, f) {
+function secant2(a, b, e, f) {
     let newGuess = a - f(a) * (a - b) / (f(a) - f(b));
     let err = Math.abs(newGuess - a);
     if (err < e) {
@@ -55,11 +55,12 @@ function secantExecute() {
             return secant(a, b, error, f1);
         case 2:
 
-            let f2 = function (x) {
+            let f2 = function () {
                 let a2 = parseFloat(document.getElementById("input2").value);
                 let b2 = parseFloat(document.getElementById("input1").value);
                 let z2 = parseFloat(document.getElementById("constant").value);
-                return (a2 * Math.pow(x, 2)) + (b2 * x) + z2;
+                let code = `${a2} * Math.pow(x,2) + (${b2} * x) + ${z2}`;
+                return new Function("x", code);
             };
             return secant(left, right, error, f2);
         case 3:

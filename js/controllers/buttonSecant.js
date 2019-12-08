@@ -29,13 +29,12 @@ function secant2(a, b, e, f) {
 }
 
 function secant(a, b, e, f) {
-    let newGuess = a - f(a) * (a-b) / (f(a) - f(b));
+    let newGuess = a - f(a) * (a - b) / (f(a) - f(b));
     let err = Math.abs(newGuess - a);
     if (err < e) {
         console.log("the root is " + newGuess);
         return newGuess;
-    }
-    else {
+    } else {
         secant(newGuess, a, e, f)
     }
 }

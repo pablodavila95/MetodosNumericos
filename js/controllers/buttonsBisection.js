@@ -43,6 +43,18 @@ function bisect(a, b, e, f) {
 
 
 function bisectionExecute() {
+    let equationUnparsed = document.getElementById("equation").value;
+    let code = "return " + equationUnparsed.toString();
+    let equation = new Function("x", code);
+
+    let a = parseFloat(document.getElementById("left").value);
+    let b = parseFloat(document.getElementById("right").value);
+    let error = parseFloat(document.getElementById("error").value);
+
+    return bisect(a,b,error,equation);
+}
+
+function bisectionExecute2() {
     let power = parseInt(document.getElementById("power").value);
     let a = parseFloat(document.getElementById("left").value);
     let b = parseFloat(document.getElementById("right").value);
